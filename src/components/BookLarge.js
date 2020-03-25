@@ -1,25 +1,28 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {TouchableNativeFeedback} from 'react-native-gesture-handler';
 import {colors, fonts} from '../consts';
 
 function BookLarge({style, data}) {
   return (
     <View style={[styles.book, {...style}]}>
-      <View style={styles.image}>
-        <Image
-          resizeMode={'stretch'}
-          style={styles.cover}
-          source={{
-            uri: data.cover,
-          }}
-        />
-      </View>
-      <Text style={styles.name} numberOfLines={1}>
-        {data.name}
-      </Text>
-      <Text style={styles.author} numberOfLines={1}>
-        {data.author}
-      </Text>
+      <TouchableNativeFeedback>
+        <View style={styles.image}>
+          <Image
+            resizeMode={'stretch'}
+            style={styles.cover}
+            source={{
+              uri: data.cover,
+            }}
+          />
+        </View>
+        <Text style={styles.name} numberOfLines={1}>
+          {data.name}
+        </Text>
+        <Text style={styles.author} numberOfLines={1}>
+          {data.author}
+        </Text>
+      </TouchableNativeFeedback>
     </View>
   );
 }
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.dark,
     marginTop: 12,
-    fontFamily: fonts.bold
+    fontFamily: fonts.bold,
   },
   author: {
     fontSize: 14,
