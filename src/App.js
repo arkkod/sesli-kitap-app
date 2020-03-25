@@ -15,11 +15,11 @@ function Tabs() {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
-          if (route.name === 'Anasayfa') {
+          if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'Kategoriler') {
+          } else if (route.name === 'Categories') {
             iconName = 'sliders';
-          } else if (route.name === 'Kütüphane') {
+          } else if (route.name === 'Library') {
             iconName = 'box';
           }
           return <Icon name={iconName} size={size} color={color} />;
@@ -28,10 +28,32 @@ function Tabs() {
       tabBarOptions={{
         activeTintColor: colors.primary,
         inactiveTintColor: colors.text,
+        style: {
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+        },
       }}>
-      <Tab.Screen name="Anasayfa" component={Home} />
-      <Tab.Screen name="Kategoriler" component={Categories} />
-      <Tab.Screen name="Kütüphane" component={Library} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: 'Anasayfa',
+        }}
+      />
+      <Tab.Screen
+        name="Categories"
+        component={Categories}
+        options={{
+          tabBarLabel: 'Kategoriler',
+        }}
+      />
+      <Tab.Screen
+        name="Library"
+        component={Library}
+        options={{
+          tabBarLabel: 'Kütüphane',
+        }}
+      />
     </Tab.Navigator>
   );
 }

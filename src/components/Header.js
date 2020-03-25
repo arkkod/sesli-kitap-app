@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import colors from '../consts/colors';
+import {colors, fonts} from '../consts';
 
 function Header({title}) {
   return (
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.header,
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: fonts.bold,
   },
   button: {
     width: 60,
