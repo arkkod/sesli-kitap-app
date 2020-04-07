@@ -1,25 +1,24 @@
 import React from 'react';
-import {ScrollView, StyleSheet, StatusBar, SafeAreaView} from 'react-native';
 import {
-  Header,
-  ListBookHorizontal,
-  ListBookVertical,
-  WidgetTitle,
-} from '../components';
+  View,
+  Text,
+  StatusBar,
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 import colors from '../consts/colors';
+import {Header, ListBookVertical} from '../components';
 
-function Home() {
+function CategoryDetail({route}) {
+  const data = route.params.data;
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={colors.primary} />
-      <Header title={'Anasayfa'} />
+      <Header title={data.name} activeGoBack={true} />
       <ScrollView style={styles.container}>
-        <ListBookHorizontal
-          widgetTitle={'Öne Çıkanlar'}
-          style={styles.horizontalList}
-        />
         <ListBookVertical
-          widgetTitle={'Son Eklenenler'}
+          widgetTitle={data.name + ' kitapları'}
           style={styles.verticalList}
         />
       </ScrollView>
@@ -32,13 +31,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  horizontalList: {
-    marginTop: 35,
-    height: 350,
-  },
   verticalList: {
     marginTop: 35,
   },
 });
 
-export default Home;
+export default CategoryDetail;

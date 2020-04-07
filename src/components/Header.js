@@ -1,14 +1,24 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import {useNavigation} from '@react-navigation/native';
 import {colors, fonts} from '../consts';
 
-function Header({title}) {
+function Header({title, activeGoBack}) {
+  const navigation = useNavigation();
   return (
     <View style={styles.header}>
-      <TouchableOpacity style={styles.button}>
-        <Icon name={'menu'} color={colors.header} size={24} />
-      </TouchableOpacity>
+      {activeGoBack ? (
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.goBack()}>
+          <Icon name={'chevron-left'} color={colors.header} size={24} />
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity style={styles.button}>
+          <Icon name={'menu'} color={colors.header} size={24} />
+        </TouchableOpacity>
+      )}
       <Text style={styles.title}>{title}</Text>
       <TouchableOpacity style={styles.button}>
         <Icon name={'search'} color={colors.header} size={24} />

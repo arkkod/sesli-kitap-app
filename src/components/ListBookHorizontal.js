@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {WidgetTitle, BookLarge} from '../components';
 
-function ListBookHorizontal({style}) {
+function ListBookHorizontal({style, widgetTitle}) {
   return (
     <View style={[styles.list, {...style}]}>
-      <WidgetTitle title={'Öne Çıkanlar'} style={styles.widgetTitle} />
+      <WidgetTitle title={widgetTitle} style={styles.widgetTitle} />
       <ScrollView horizontal={true} style={styles.scroll}>
         <BookLarge
           style={styles.bookLarge}

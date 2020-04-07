@@ -3,11 +3,12 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {WidgetTitle, BookSmall} from '../components';
 import {colors} from '../consts';
 
-function ListBookVertical({style}) {
+function ListBookVertical({style, widgetTitle, library}) {
   return (
     <View style={[styles.list, {...style}]}>
-      <WidgetTitle title={'Son Eklenenler'} style={styles.widgetTitle} />
+      <WidgetTitle title={widgetTitle} style={styles.widgetTitle} />
       <BookSmall
+        library={library}
         style={styles.bookSmall}
         data={{
           name: 'Hiçbir Karşılaşma Tesadüf Değildir',
@@ -19,6 +20,7 @@ function ListBookVertical({style}) {
         }}
       />
       <BookSmall
+        library={library}
         style={styles.bookSmall}
         data={{
           name: 'Akşam Yıldızı',
@@ -30,6 +32,7 @@ function ListBookVertical({style}) {
         }}
       />
       <BookSmall
+        library={library}
         style={styles.bookSmall}
         data={{
           name: 'Hiçbir Karşılaşma Tesadüf Değildir',
@@ -41,6 +44,7 @@ function ListBookVertical({style}) {
         }}
       />
       <BookSmall
+        library={library}
         style={styles.bookSmall}
         data={{
           name: 'Akşam Yıldızı',
@@ -52,6 +56,7 @@ function ListBookVertical({style}) {
         }}
       />
       <BookSmall
+        library={library}
         style={styles.bookSmall}
         data={{
           name: 'Hiçbir Karşılaşma Tesadüf Değildir',

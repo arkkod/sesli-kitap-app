@@ -1,11 +1,33 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, Alert} from 'react-native';
 import {TouchableNativeFeedback} from 'react-native-gesture-handler';
 import {colors, fonts} from '../consts';
 
-function BookSmall({style, data}) {
+function BookSmall({style, data, library}) {
+  function onPressBook() {
+    alert('kitaba tıklandı');
+  }
+
+  function onLongPressBook() {
+    if (library) {
+      Alert.alert('Uyarı', 'Kitap favorilerden silinsin mi?', [
+        {text: 'İptal'},
+        {
+          text: 'Sil',
+          onPress: () => {
+            // kitap favorilerden çıkarma kodu buraya yazılacak
+            alert('kitap silindi');
+          },
+        },
+      ]);
+    }
+  }
+
   return (
-    <TouchableNativeFeedback style={[styles.book, {...style}]}>
+    <TouchableNativeFeedback
+      style={[styles.book, {...style}]}
+      onPress={() => onPressBook()}
+      onLongPress={() => onLongPressBook()}>
       <View style={styles.image}>
         <Image
           resizeMode={'stretch'}
