@@ -1,11 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, Alert} from 'react-native';
 import {TouchableNativeFeedback} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 import {colors, fonts} from '../consts';
 
 function BookSmall({style, data, library}) {
+  const navigation = useNavigation();
   function onPressBook() {
-    alert('kitaba tıklandı');
+    navigation.navigate('BookDetail', data);
   }
 
   function onLongPressBook() {

@@ -1,12 +1,17 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableNativeFeedback} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 import {colors, fonts} from '../consts';
 
 function BookLarge({style, data}) {
+  const navigation = useNavigation();
+  function onPressBook() {
+    navigation.navigate('BookDetail', data);
+  }
   return (
     <View style={[styles.book, {...style}]}>
-      <TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => onPressBook()}>
         <View style={styles.image}>
           <Image
             resizeMode={'stretch'}
